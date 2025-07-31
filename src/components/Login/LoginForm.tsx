@@ -26,9 +26,22 @@ export default function LoginForm() {
       await login({ loginId : inputId, password : inputPassword});
       setErrorMessage("");
       navigate("/", { replace: true });
-    } catch (error) {
-      alert("로그인 실패!")
+      //수정 부분
+      }catch (error: any) {
+    const message = error?.message || "로그인에 실패했습니다.";
+
+    const errorCode = error?.code; 
+
+    if (errorCode === "MEMBER4003") {
+      setErrorMessage("등록되지 않은 아이디입니다.");
+    } else if (errorCode === "MEMBER4002") {
+      setErrorMessage("비밀번호가 올바르지 않습니다.");
+    } else {
+      setErrorMessage(message);
     }
+
+    console.error("로그인 실패:", message);
+  }
     
 
     /*

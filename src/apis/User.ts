@@ -14,18 +14,32 @@ import {
     type ResponseUserFavoritesListDto,
 } from "../types/apis/User";
 import { axiosInstance } from "./axios";
+import {
+  MOCK_LOGIN_SUCCESS,
+  MOCK_LOGIN_FAIL_ID,
+  MOCK_LOGIN_FAIL_PASSWORD
+} from "../constants/mock/Login"; 
+
 
 /// 로그인 
-export const postSignin = async ( body : RequestSigninDto ):Promise<SigninResponseWithToken> => {
-    const res = await axiosInstance.post("/auth/login", body);
-    const data = res.data.result
-    const accessToken = res.headers['authorization']?.split(" ")[1]
+// export const postSignin = async ( body : RequestSigninDto ):Promise<SigninResponseWithToken> => {
+//     const res = await axiosInstance.post("/auth/login", body);
+//     const data = res.data.result
+//     const accessToken = res.headers['authorization']?.split(" ")[1]
     
-    return {
-        accessToken,
-        data
+//     return {
+//         accessToken,
+//         data
+//     };
+// };
+    // 임시 로그인
+    export const postSignin = async (body: RequestSigninDto) => {
+    if (body.loginId !== "umc123") throw MOCK_LOGIN_FAIL_ID;
+    if (body.password !== "asdf1234") throw MOCK_LOGIN_FAIL_PASSWORD;
+
+    return MOCK_LOGIN_SUCCESS; 
     };
-};
+
 
 /// 로그 아웃
 export const postLogout = async () => {
