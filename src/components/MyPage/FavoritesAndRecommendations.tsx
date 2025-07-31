@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SortModalArrowIcon from "../../assets/MyPage/SortModalArrow.svg";
 import Favorites from "./Favorites";
 import RecommendationsResultSection from "./RecommendationsResultSection";
@@ -8,6 +8,12 @@ const FavoritesAndRecommendations: React.FC = () => {
   const [favOrRecommend, setFavOrRecommend] = useState(true);
   const [isSortModalOpen, setIsSortModalOpen] = useState(false);
   const [sortOption, setSortOption] = useState("향수공방"); // 초기 정렬 기준 텍스트
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSortOptionClick = (option: string) => {
     setSortOption(option);
@@ -59,7 +65,9 @@ const FavoritesAndRecommendations: React.FC = () => {
         )}
       </div>
 
-      {favOrRecommend ? <Favorites /> : <RecommendationsResultSection />}
+      {favOrRecommend
+        ? <Favorites isLoading={isLoading} />
+        : <RecommendationsResultSection isLoading={isLoading} />}
     </div>
   );
 };

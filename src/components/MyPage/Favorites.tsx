@@ -1,7 +1,8 @@
 import type { Perfume } from "../../types/perfume";
+import SkeletonPerfumeCard from "../common/SkeletonPerfumeCard";
 import MyPagePerfumeCard from "./MyPagePerfumeCard";
 
-const Favorites: React.FC = () => {
+const Favorites: React.FC<{ isLoading?: boolean }> = ({ isLoading = false }) => {
   const firstMDChoice: Perfume[] = [
     {
       id: 1,
@@ -31,21 +32,9 @@ const Favorites: React.FC = () => {
 
   return (
     <div className="grid grid-cols-3 gap-4 w-full pb-7">
-      {firstMDChoice.map((perfume) => (
-        <MyPagePerfumeCard
-            perfume={perfume}
-        />
-      ))}
-      {firstMDChoice.map((perfume) => (
-        <MyPagePerfumeCard
-            perfume={perfume}
-        />
-      ))}
-      {firstMDChoice.map((perfume) => (
-        <MyPagePerfumeCard
-            perfume={perfume}
-        />
-      ))}
+      {isLoading
+        ? Array.from({ length: 6 }).map((_, idx) => <SkeletonPerfumeCard key={idx} />)
+        : firstMDChoice.map((perfume) => <MyPagePerfumeCard key={perfume.id} perfume={perfume} />)}
     </div>
   );
 };
