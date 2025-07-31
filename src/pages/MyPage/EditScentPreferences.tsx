@@ -6,8 +6,10 @@ import { scentOptions } from "../../types/scentOptions";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineExclamation } from "react-icons/ai";
 import GoBackIcon from "../../assets/MyPage/GoBackArrowButton.svg"
+import { useNavigate } from "react-router-dom";
 
 export default function EditScentPreferences() {
+  const navigate = useNavigate()
   const [selected, setSelected] = useState<string[]>([]);
   const toggle = (id: string) => {
     if (selected.includes(id)) {
@@ -36,7 +38,7 @@ export default function EditScentPreferences() {
 
   return (
     <OnboardingLayout>
-      <div className="font-[Pretandard]">
+      <div className="min-h-screen h-full pb-16 font-[Pretandard]">
         <Toaster position="bottom-center" />
   
         <div className="w-full px-4 mx-auto mt-[22px]">
@@ -71,7 +73,7 @@ export default function EditScentPreferences() {
         <div className="pb-3 w-full">
           <BottomButton
             disabled={selected.length !== 3}
-            onClick={() => (window.location.href = "/mypage")}
+            onClick={() => (navigate("/mypage"))}
           >
             수정하기
           </BottomButton>

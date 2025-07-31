@@ -26,7 +26,7 @@ const PBTIQuestionPage: React.FC = () => {
       // 마지막 질문 완료 - API 전송
       console.log(updatedAnswers)
       setIsSubmitting(true);
-      
+      /*
       try {
         // API 요청 body 구성
         const requestBody: RequestPbtiQuestion = {
@@ -56,7 +56,98 @@ const PBTIQuestionPage: React.FC = () => {
         alert('결과 처리 중 오류가 발생했습니다. 다시 시도해주세요.');
         setIsSubmitting(false);
       }
-    }
+      */
+      const requestBody: RequestPbtiQuestion = {
+              qOne: updatedAnswers[0].toString(),
+              qTwo: updatedAnswers[1].toString(),
+              qThree: updatedAnswers[2].toString(),
+              qFour: updatedAnswers[3].toString(),
+              qFive: updatedAnswers[4].toString(),
+              qSix: updatedAnswers[5].toString(),
+              qSeven: updatedAnswers[6].toString(),
+              qEight: updatedAnswers[7].toString(),
+          };
+      
+          const result = {
+        savedName: "감각적인 미니멀리스트",
+        recommendation: "당신에게는 깨끗하면서도 독특한 향이 잘 어울려요.",
+        keywords: [
+          {
+            keyword: "미니멀",
+            keywordDescription: "불필요한 것을 덜어내고 본질에 집중하는 당신에게 어울리는 향이에요."
+          },
+          {
+            keyword: "감각적",
+            keywordDescription: "섬세한 감각으로 주변을 바라보는 당신에게 어울리는 향이에요."
+          },
+          {
+            keyword: "도회적",
+            keywordDescription: "세련되고 도시적인 무드를 지닌 당신을 표현해요."
+          }
+        ],
+        perfumeStyle: {
+          description: "차분하고 세련된 무드를 자아내는 향수 스타일",
+          notes: [
+            {
+              category: "시트러스",
+              categoryDescription: "상큼하고 청량한 인상을 주는 톱 노트"
+            },
+            {
+              category: "머스크",
+              categoryDescription: "포근하고 은은한 베이스 노트로 여운을 남겨요"
+            }
+          ]
+        },
+        scentPoint: [
+          {
+            category: "우디",
+            point: 4
+          },
+          {
+            category: "플로럴",
+            point: 2
+          },
+          {
+            category: "프루티",
+            point: 1
+          },
+          {
+            category: "시트러스",
+            point: 5
+          }
+        ],
+        summary: "당신은 본질에 집중하면서도 섬세한 감각을 지닌 사람입니다. 향수에서도 간결하고 정제된 스타일을 선호하며, 상큼하고 은은한 향이 잘 어울려요.",
+        perfumeRecommend: [
+          {
+            name: "Another 13",
+            brand: "Le Labo",
+            description: "깨끗하고 인공적인 느낌이 독특하게 어우러진 향",
+            perfumeImageUrl: "https://example.com/images/another13.jpg"
+          },
+          {
+            name: "Not a Perfume",
+            brand: "Juliette Has a Gun",
+            description: "단일 분자로 이루어진 미니멀한 향수, 은은한 머스크 베이스",
+            perfumeImageUrl: "https://example.com/images/notaperfume.jpg"
+          },
+          {
+            name: "Molecule 01",
+            brand: "Escentric Molecules",
+            description: "개인의 체취와 어우러져 독특하게 발현되는 향수",
+            perfumeImageUrl: "https://example.com/images/molecule01.jpg"
+          }
+        ]
+      };
+      
+      setTimeout(() => {
+        navigate('/PBTI/result', { 
+          state: { 
+            answers: updatedAnswers,
+            result: result 
+          } 
+        });
+      }, 2000); // 2000ms = 2초
+          }
   };
 
   const currentQuestion = questions[currentIdx];

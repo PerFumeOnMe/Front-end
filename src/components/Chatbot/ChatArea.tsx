@@ -23,7 +23,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, isLoading }) => {
       ref={chatRef}
       className="px-1 py-1 overflow-y-auto pb-1 bg-main-10 flex-1"
     >
-      <WelcomeHeader name="김성섭" date="2025.07.06" />
+      <WelcomeHeader name="칠성" date="2025.07.31" />
       {messages.map((msg, idx) =>
         msg.type === "user" ? (
           <UserMessage key={idx} text={msg.text} />

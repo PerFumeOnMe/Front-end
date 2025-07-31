@@ -17,7 +17,7 @@ const ChoosePathPage = () => {
                 {/* 텍스트 */}
                 <h1 className="text-title3 text-grayscale-800 text-center mb-[36px]">
                     {/* 김성섭 부분 나중에 {name}으로 뱌꾸기 */}
-                    김성섭님에게 어울리는 향수를 찾고싶어요!<br/>
+                    김진성님에게 어울리는 향수를 찾고싶어요!<br/>
                     어떠한 경로를 이용하시겠어요?
                 </h1>
 

@@ -35,7 +35,7 @@ const ChatbotPage: React.FC = () => {
         { type: "bot", text: "당연하죠! 우선, 어떤 향을 좋아하는지 알려주세요!" },
       ]);
       setIsLoading(false);
-    }, 3000); // 2초 후 응답
+    }, 2500); // 2초 후 응답
   };
 
   const hasUserMessage = messages.some(msg => msg.type === "user");

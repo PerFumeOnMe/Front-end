@@ -15,8 +15,8 @@ import { useAuth } from "../../context/AuthContext";
 export default function LoginForm() {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [inputId, setInputId] = useState<string>("umc123");
-  const [inputPassword, setInputPassword] = useState<string>("asdf1234");
+  const [inputId, setInputId] = useState<string>("");
+  const [inputPassword, setInputPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {

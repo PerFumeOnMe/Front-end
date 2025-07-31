@@ -133,7 +133,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthProvider>
-      <div className="w-full h-screen bg-amber-200 flex justify-center">
+      <div className="w-full min-h-screen h-full bg-black/10 flex justify-center">
         <RouterProvider router={router} />
       </div>
     </AuthProvider>

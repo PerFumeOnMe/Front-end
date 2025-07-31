@@ -14,7 +14,74 @@ const MainPage = () => {
     const [nickName, setNickName] = useState<string>("");
     const [trending, setTrending] = useState<Perfume[]>([]);
 
+    const firstMDChoice: Perfume[] = [
+        {
+            id: 1,
+            imageUrl: "https://image.sivillage.com/upload/C00001/goods/org/617/230907006220617.jpg?RS=600&SP=1",
+            brand: "LOIVIE",
+            name: "오 드 퍼퓸 피오니 앤 화이트 머스크",
+            price: 320000,
+            isLiked: true
+        },
+        {
+            id: 2,
+            imageUrl: "https://image.sivillage.com/upload/C00001/goods/org/895/231117007082895.jpg?RS=600&SP=1",
+            brand: "LOIVIE",
+            name: "오 드 퍼퓸 망고 앤 민트 리브",
+            price: 320000,
+            isLiked: false
+        },
+        {
+            id: 3,
+            imageUrl: "https://image.sivillage.com/upload/C00001/goods/org/157/230922006452157.jpg?RS=600&SP=1",
+            brand: "LOIVIE",
+            name: "오 드 퍼퓸 휘그 앤 시더우드",
+            price: 320000,
+            isLiked: false
+        }
+    ];
+
+    const secondMDChoice: Perfume[] = [
+        {
+            id: 4,
+            imageUrl: "https://image.sivillage.com/upload/C00001/goods/org/617/230907006220617.jpg?RS=600&SP=1",
+            brand: "LOIVIE",
+            name: "오 드 퍼퓸 피오니 앤 화이트 머스크",
+            price: 320000,
+            isLiked: true
+        },
+        {
+            id: 5,
+            imageUrl: "https://image.sivillage.com/upload/C00001/goods/org/895/231117007082895.jpg?RS=600&SP=1",
+            brand: "LOIVIE",
+            name: "오 드 퍼퓸 망고 앤 민트 리브",
+            price: 320000,
+            isLiked: false
+        },
+        {
+            id: 6,
+            imageUrl: "https://image.sivillage.com/upload/C00001/goods/org/157/230922006452157.jpg?RS=600&SP=1",
+            brand: "LOIVIE",
+            name: "오 드 퍼퓸 휘그 앤 시더우드",
+            price: 320000,
+            isLiked: false
+        }
+    ];
+    
+    
+    
+    
     useEffect(() => {
+        const fetchData = async () => {
+            setMdChoice(firstMDChoice);
+            setUserName("김진성");
+            setNickName("칠성");
+            setTrending(secondMDChoice);
+        }
+        fetchData()
+    }, [])
+
+    /*useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await getMdChoice();
@@ -28,7 +95,7 @@ const MainPage = () => {
             }
         };
         fetchData();
-    }, [accessToken]);
+    }, [accessToken]); */
 
     return (
         <div className="min-h-screen bg-white font-[Pretendard] pb-[80px]">

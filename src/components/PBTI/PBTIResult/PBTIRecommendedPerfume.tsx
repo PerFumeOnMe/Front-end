@@ -1,23 +1,21 @@
 type PBTIRecommendedPerfumeProps = {
-  imageUrl: string;
-  brand: string;
   name: string;
-  price: string;
+  brand: string;
   description: string;
+  perfumeImageUrl: string;
 };
 
 const PBTIRecommendedPerfume: React.FC<PBTIRecommendedPerfumeProps> = ({
-  imageUrl,
-  brand,
   name,
-  price,
+  brand,
   description,
+  perfumeImageUrl,
 }) => {
   return (
     <div className="w-full h-full flex tracking-tighter">
       {/* 이미지 파트 */}
       <div className="relative w-21 h-25 flex-shrink-0">
-        <img src={imageUrl} alt={name} className="w-full h-full object-cover rounded-2xl shadow bg-amber-300" />
+        <img src={perfumeImageUrl} alt={name} className="w-full h-full object-cover rounded-2xl shadow bg-amber-300" />
         <div className="absolute bottom-0 right-1">
           <span className="text-[18px]">💜</span>
         </div>
@@ -29,7 +27,6 @@ const PBTIRecommendedPerfume: React.FC<PBTIRecommendedPerfumeProps> = ({
         <div className="flex flex-col">
             <div className="flex w-full justify-between items-center text-caption1 text-gray-800">
                 <span>{brand}</span>
-                <span className="text-body4 text-gray-700">{price}</span>
             </div>
 
             {/* 제품명 */}
