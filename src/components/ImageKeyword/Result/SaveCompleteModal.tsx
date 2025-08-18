@@ -14,7 +14,7 @@ export default function SaveCompleteModal({
         </h3>
         <button
           onClick={onConfirm}
-          className="w-full h-[48px] bg-main-600 text-title3 text-grayscale-200 rounded-[16px] mt-[32px]"
+          className="w-full h-[48px] bg-main-500 hover:bg-main-600 text-title3 text-grayscale-200 rounded-[16px] mt-[32px]"
         >
           홈으로
         </button>
